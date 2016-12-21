@@ -9,7 +9,7 @@ app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json())
 app.use(express.static('public'))
 
-
+// app.use('/api', require('./routes'))
 app.use(apiRouter)
 
 app.get('/*', function(req, res) {
@@ -17,5 +17,6 @@ app.get('/*', function(req, res) {
 })
 
 db.sequelize.sync().then(function() {
+	console.log('server is running on port 3000!')
   app.listen(3000)
 })
